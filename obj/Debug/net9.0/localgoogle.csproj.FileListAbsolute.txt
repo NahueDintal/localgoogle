@@ -36,3 +36,10 @@
 /home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.dll
 /home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/refint/localgoogle.dll
 /home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.pdb
+/home/nahuedintal/Estudio/localgoogle/bin/Debug/net9.0/localgoogle
+/home/nahuedintal/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.deps.json
+/home/nahuedintal/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.runtimeconfig.json
+/home/nahuedintal/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.dll
+/home/nahuedintal/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.pdb
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.genruntimeconfig.cache
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/ref/localgoogle.dll

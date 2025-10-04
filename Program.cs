@@ -7,12 +7,6 @@ namespace Localgoogle
   {
     static void Main()
     {
-      // interface para ingresar el tipo de busqueda
-      // por nombre
-      // por contenido
-      // por tamaño
-      // tipo de archivo
-      // busqueda combinada
 
       while(true) 
       {
@@ -21,8 +15,9 @@ namespace Localgoogle
         Console.WriteLine(":: 2. Por tipo de archivo.");
         Console.WriteLine(":: 3. Por tamaño.");
         Console.WriteLine(":: 4. Por contenido.");
-        Console.WriteLine(":: 5. Busqueda combinada.");
-        Console.WriteLine(":: 6. Salir.");
+        Console.WriteLine(":: 5. Por fecha.");
+        Console.WriteLine(":: 6. Busqueda combinada.");
+        Console.WriteLine(":: 7. Salir.");
 
         double opcion = LeerNumero(
             Mensaje: ":: Opcion: ",
@@ -52,11 +47,11 @@ namespace Localgoogle
               );
           switch ( opcion2 )
           {
-            case 1: BuscarTexto(); break;
-            case 2: BuscarImagen(); break;
-            case 3: BuscarVideo(); break;
-            case 4: BuscarPrograma(); break;
-            case 5: return;
+            // case 1: BuscarTexto(); break;
+            // case 2: BuscarImagen(); break;
+            // case 3: BuscarVideo(); break;
+            // case 4: BuscarPrograma(); break;
+            // case 5: return;
           }
         }
 
@@ -67,20 +62,25 @@ namespace Localgoogle
               MensajeError: "Ingrese un numero Natural por favor."
               );
 
-
-
+        }
+        if ( opcion == 4 )
+        {
+          string contenidoArchivo = LeerLetras(
+              Mensaje: "Ingrese contenido que se encuentra dentro del texto: ",
+              MensajeError: "Por favor, ingrese texto, numeros y signos como: @, #, $, %, &, +, =, !, ^, ~, ', ,, ;"
+              );
 
         }
 
         if ( opcion == 5)
         {
+          Console.WriteLine("Ingrese como combinar la busqueda")
           Console.WriteLine("1. DISYUNCIÓN (OR) - Unir con otro conjunto");
           Console.WriteLine("2. CONJUNCIÓN (AND) - Intersectar con otro conjunto");
           Console.WriteLine("3. DISYUNCIÓN EXCLUSIVA (XOR) - Solo en uno u otro");
           Console.WriteLine("4. NEGACIÓN (NOT) - Excluir criterio");
           Console.WriteLine("5. CUANTIFICADOR UNIVERSAL - Verificar propiedad para todos");
           Console.WriteLine("6. CUANTIFICADOR EXISTENCIAL - Verificar si existe alguno");
-        
 
           double opcion5 = LeerNumero(
               Mensaje: "Opcion: ",
@@ -89,12 +89,12 @@ namespace Localgoogle
 
           switch (opcion)
           {
-              case 1: AplicarDisyuncion(); break;
-              case 2: AplicarConjuncion(); break;
-              case 3: AplicarDisyuncionExclusiva(); break;
-              case 4: AplicarNegacion(); break;
-              case 5: AplicarCuantificadorUniversal(); break;
-              case 6: AplicarCuantificadorExistencial(); break;
+              // case 1: AplicarDisyuncion(); break;
+              // case 2: AplicarConjuncion(); break;
+              // case 3: AplicarDisyuncionExclusiva(); break;
+              // case 4: AplicarNegacion(); break;
+              // case 5: AplicarCuantificadorUniversal(); break;
+              // case 6: AplicarCuantificadorExistencial(); break;
           }
         }
         if ( opcion == 6)
