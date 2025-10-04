@@ -72,11 +72,14 @@ namespace Localgoogle
           Console.WriteLine($"Buscando por contenido...");
         }
         if ( opcion == 5 )
+        {
+
           DateTime fecha = LeerFecha(
                       mensaje: "Ingrese la fecha (formato dd/mm/aaaa): ",
                       mensajeError: "Formato de fecha incorrecto. Use dd/mm/aaaa."
                   );
           Console.WriteLine($"Buscando por fecha...");
+        }
 
         if ( opcion == 6 )
         {
