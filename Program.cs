@@ -61,20 +61,26 @@ namespace Localgoogle
               Mensaje: "Indique el tamaño del archivo: ",
               MensajeError: "Ingrese un numero Natural por favor."
               );
-
+          Console.WriteLine($"Buscando por tamaño... ");
         }
         if ( opcion == 4 )
         {
           string contenidoArchivo = LeerLetras(
               Mensaje: "Ingrese contenido que se encuentra dentro del texto: ",
-              MensajeError: "Por favor, ingrese texto, numeros y signos como: @, #, $, %, &, +, =, !, ^, ~, ', ,, ;"
+              MensajeError: "Por favor, ingrese texto, numeros o signos permitidos: @, #, $, %, &, +, =, !, ^, ~, ', ,, ;"
               );
-
+          Console.WriteLine($"Buscando por contenido...");
         }
+        if ( opcion == 5 )
+          DateTime fecha = LeerFecha(
+                      mensaje: "Ingrese la fecha (formato dd/mm/aaaa): ",
+                      mensajeError: "Formato de fecha incorrecto. Use dd/mm/aaaa."
+                  );
+          Console.WriteLine($"Buscando por fecha...");
 
-        if ( opcion == 5)
+        if ( opcion == 6 )
         {
-          Console.WriteLine("Ingrese como combinar la busqueda")
+          Console.WriteLine("Ingrese como combinar la busqueda");
           Console.WriteLine("1. DISYUNCIÓN (OR) - Unir con otro conjunto");
           Console.WriteLine("2. CONJUNCIÓN (AND) - Intersectar con otro conjunto");
           Console.WriteLine("3. DISYUNCIÓN EXCLUSIVA (XOR) - Solo en uno u otro");
@@ -103,16 +109,33 @@ namespace Localgoogle
             return;
         }
       } //Fin while
-      //proceso de discriminacion de los resultados por disyuncion, conjuncion
-      //disyuncion exclusiva, negacion o implicacion, y cuantificadores universales y
-      //existencial. con los cuantificadores se me ocurre que puede ser la diferencia
-      //entre saber si el archivo existe o no estar seguro que así sea!
-      //
-      //
       // imprimir resultados
 
+
     }
-      //funcion para filtrar el input ingreso por teclado de las opciones numeros enteros
+      // funcion aplicar disyuncion (OR)
+    static void AplicarBusquedaCombinada()
+    {
+      return;
+    }
+    static DateTime LeerFecha(string mensaje, string mensajeError)
+    {
+      while (true)
+      {
+        Console.Write(mensaje);
+        string? input = Console.ReadLine()?.Trim();
+        
+        if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fecha))
+        {
+          return fecha;
+        }
+        else
+        {
+          Console.WriteLine(mensajeError);
+        }
+      }
+    }
+          //funcion para filtrar el input ingreso por teclado de las opciones numeros enteros
     static double LeerNumero( string Mensaje, string MensajeError )
     {
       while (true)
