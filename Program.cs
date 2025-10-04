@@ -62,6 +62,13 @@ namespace Localgoogle
 
         if ( opcion == 3 )
         {
+          double tamañoArchivo = LeerNumero(
+              Mensaje: "Indique el tamaño del archivo: ",
+              MensajeError: "Ingrese un numero Natural por favor."
+              );
+
+
+
 
         }
 

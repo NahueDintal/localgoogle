@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nahuedintal/Estudio/dev/matematicas/localgoogle/localgoogle.csproj",
+      "projectUniqueName": "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj",
       "projectName": "localgoogle",
-      "projectPath": "/home/nahuedintal/Estudio/dev/matematicas/localgoogle/localgoogle.csproj",
+      "projectPath": "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj",
       "packagesPath": "/home/nahuedintal/.nuget/packages/",
-      "outputPath": "/home/nahuedintal/Estudio/dev/matematicas/localgoogle/obj/",
+      "outputPath": "/home/nahuedintal/Estudio/localgoogle/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/nahuedintal/.nuget/NuGet/NuGet.Config"

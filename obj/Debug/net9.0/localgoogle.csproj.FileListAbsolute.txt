@@ -28,3 +28,11 @@
 /home/nahuedintal/Estudio/dev/matematicas/localgoogle/bin/Debug/net9.0/localgoogle.pdb
 /home/nahuedintal/Estudio/dev/matematicas/localgoogle/obj/Debug/net9.0/localgoogle.genruntimeconfig.cache
 /home/nahuedintal/Estudio/dev/matematicas/localgoogle/obj/Debug/net9.0/ref/localgoogle.dll
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.GeneratedMSBuildEditorConfig.editorconfig
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.AssemblyInfoInputs.cache
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.AssemblyInfo.cs
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.csproj.CoreCompileInputs.cache
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.sourcelink.json
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.dll
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/refint/localgoogle.dll
+/home/nahuedintal/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jI11e2LRE88=",
+  "dgSpecHash": "etntKJdy01U=",
   "success": true,
-  "projectFilePath": "/home/nahuedintal/Estudio/dev/matematicas/localgoogle/localgoogle.csproj",
+  "projectFilePath": "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj",
   "expectedPackageFiles": [
     "/home/nahuedintal/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.9/microsoft.aspnetcore.app.ref.9.0.9.nupkg.sha512"
   ],
