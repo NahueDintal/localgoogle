@@ -194,5 +194,35 @@ namespace Localgoogle
 
       }
     }
+
+    //Función para leer el directorio raíz y todos sus subdirectorios
+    static List<string> LeerDirectorio()
+    {
+        string rutaDefinida = @"C:\TuCarpeta"; //  RECORDAR CAMBIAR POR LA RUTA QUE VAMOS A USAR
+    
+        try
+        {
+            // Obtener todos los archivos recursivamente
+            string[] archivos = Directory.GetFiles(rutaDefinida, "*.*", SearchOption.AllDirectories);
+            
+            // Convertir a rutas relativas para mejor visualización
+            List<string> archivosRelativos = new List<string>();
+            foreach (string archivo in archivos)
+            {
+                // Obtener ruta relativa desde el directorio base
+                string relativa = archivo.Replace(rutaDefinida, "").TrimStart(Path.DirectorySeparatorChar);
+                archivosRelativos.Add(relativa);
+            }
+            
+            Console.WriteLine($"✅ Se encontraron {archivosRelativos.Count} archivos en: {rutaDefinida}");
+            return archivosRelativos;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error al leer el directorio: {ex.Message}");
+            return new List<string>();
+        }
+    }
+    
   }
 }
