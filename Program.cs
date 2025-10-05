@@ -93,127 +93,30 @@ namespace Localgoogle
         }
     }
 
+    static void RealizarBusquedaIndividual()
+    {
+    }
+    static void AplicarOperadoresLogicos()
+    {
+    }
     // CUANTIFICADOR UNIVERSAL (∀) - "Para todo x, P(x)"
     static void AplicarCuantificadorUniversal(List<string> archivos)
     {
-        Console.WriteLine(":: CUANTIFICADOR UNIVERSAL (∀) ::");
-        Console.WriteLine("Verificaremos si TODOS los archivos cumplen con una propiedad");
-        
-        Console.WriteLine("Seleccione la propiedad a verificar:");
-        int propiedad = SeleccionarCriterio();
-        
-        List<string> archivosQueCumplen = RealizarBusquedaIndividual(propiedad);
-        
-        // Verificar si todos los archivos del conjunto están en los que cumplen la propiedad
-        bool todosCumplen = archivos.All(archivo => archivosQueCumplen.Contains(archivo));
-        
-        if (todosCumplen)
-        {
-            Console.WriteLine($"✅ VERDADERO: Todos los {archivos.Count} archivos cumplen la propiedad seleccionada");
-        }
-        else
-        {
-            List<string> archivosQueNoCumplen = archivos.Except(archivosQueCumplen).ToList();
-            Console.WriteLine($"❌ FALSO: No todos los archivos cumplen la propiedad");
-            Console.WriteLine($"Archivos que NO cumplen ({archivosQueNoCumplen.Count}):");
-            foreach (string archivo in archivosQueNoCumplen)
-            {
-                Console.WriteLine($"   - {archivo}");
-            }
-        }
     }
 
     // CUANTIFICADOR EXISTENCIAL (∃) - "Existe al menos un x tal que P(x)"
     static void AplicarCuantificadorExistencial(List<string> archivos)
     {
-        Console.WriteLine(":: CUANTIFICADOR EXISTENCIAL (∃) ::");
-        Console.WriteLine("Verificaremos si existe AL MENOS UN archivo que cumple con una propiedad");
-        
-        Console.WriteLine("Seleccione la propiedad a verificar:");
-        int propiedad = SeleccionarCriterio();
-        
-        List<string> archivosQueCumplen = RealizarBusquedaIndividual(propiedad);
-        
-        // Verificar si existe al menos un archivo del conjunto que cumple la propiedad
-        bool existeAlMenosUno = archivos.Any(archivo => archivosQueCumplen.Contains(archivo));
-        
-        if (existeAlMenosUno)
-        {
-            List<string> interseccion = archivos.Intersect(archivosQueCumplen).ToList();
-            Console.WriteLine($"✅ VERDADERO: Existen {interseccion.Count} archivo(s) que cumplen la propiedad:");
-            foreach (string archivo in interseccion)
-            {
-                Console.WriteLine($"   - {archivo}");
-            }
-        }
-        else
-        {
-            Console.WriteLine($"❌ FALSO: No existe ningún archivo que cumpla la propiedad");
-        }
     }
 
     // CUANTIFICADOR DE EXISTENCIA ÚNICA (∃!) - "Existe exactamente un x tal que P(x)"
     static void AplicarCuantificadorExistenciaUnica(List<string> archivos)
     {
-        Console.WriteLine(":: CUANTIFICADOR DE EXISTENCIA ÚNICA (∃!) ::");
-        Console.WriteLine("Verificaremos si existe EXACTAMENTE UN archivo que cumple con una propiedad");
-        
-        Console.WriteLine("Seleccione la propiedad a verificar:");
-        int propiedad = SeleccionarCriterio();
-        
-        List<string> archivosQueCumplen = RealizarBusquedaIndividual(propiedad);
-        
-        // Encontrar la intersección entre el conjunto base y los que cumplen la propiedad
-        List<string> interseccion = archivos.Intersect(archivosQueCumplen).ToList();
-        
-        if (interseccion.Count == 1)
-        {
-            Console.WriteLine($"✅ VERDADERO: Existe exactamente UN archivo que cumple la propiedad:");
-            Console.WriteLine($"   - {interseccion[0]}");
-        }
-        else if (interseccion.Count > 1)
-        {
-            Console.WriteLine($"❌ FALSO: Existen {interseccion.Count} archivos que cumplen la propiedad, no exactamente uno");
-            Console.WriteLine("Archivos que cumplen:");
-            foreach (string archivo in interseccion)
-            {
-                Console.WriteLine($"   - {archivo}");
-            }
-        }
-        else
-        {
-            Console.WriteLine($"❌ FALSO: No existe ningún archivo que cumpla la propiedad");
-        }
     }
 
     // CUANTIFICADOR DE CONTEO - "Contar cuántos x cumplen P(x)"
     static void AplicarCuantificadorConteo(List<string> archivos)
     {
-        Console.WriteLine(":: CUANTIFICADOR DE CONTEO ::");
-        Console.WriteLine("Contaremos CUÁNTOS archivos cumplen con una propiedad");
-        
-        Console.WriteLine("Seleccione la propiedad a verificar:");
-        int propiedad = SeleccionarCriterio();
-        
-        List<string> archivosQueCumplen = RealizarBusquedaIndividual(propiedad);
-        
-        // Contar la intersección entre el conjunto base y los que cumplen la propiedad
-        List<string> interseccion = archivos.Intersect(archivosQueCumplen).ToList();
-        
-        Console.WriteLine($"📊 RESULTADO: {interseccion.Count} de {archivos.Count} archivos cumplen la propiedad");
-        
-        if (interseccion.Count > 0)
-        {
-            Console.WriteLine("Archivos que cumplen:");
-            foreach (string archivo in interseccion)
-            {
-                Console.WriteLine($"   - {archivo}");
-            }
-            
-            // Calcular porcentaje
-            double porcentaje = (interseccion.Count * 100.0) / archivos.Count;
-            Console.WriteLine($"Porcentaje: {porcentaje:F2}%");
-        }
     }
 
     static int SeleccionarCriterio()
