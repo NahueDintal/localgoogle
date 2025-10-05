@@ -51,3 +51,10 @@
 /home/nahue/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.dll
 /home/nahue/Estudio/localgoogle/obj/Debug/net9.0/refint/localgoogle.dll
 /home/nahue/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.pdb
+/home/nahue/Estudio/localgoogle/bin/Debug/net9.0/localgoogle
+/home/nahue/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.deps.json
+/home/nahue/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.runtimeconfig.json
+/home/nahue/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.dll
+/home/nahue/Estudio/localgoogle/bin/Debug/net9.0/localgoogle.pdb
+/home/nahue/Estudio/localgoogle/obj/Debug/net9.0/localgoogle.genruntimeconfig.cache
+/home/nahue/Estudio/localgoogle/obj/Debug/net9.0/ref/localgoogle.dll
