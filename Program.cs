@@ -43,6 +43,7 @@ namespace Localgoogle
 
         static void MenuPrincipal()
         {
+          Console.Clear();
           Console.WriteLine("Seleccione la forma de buscar");
           Console.WriteLine("1. Operadores lógicos básicos");
           Console.WriteLine("2. Cuantificadores lógicos");
@@ -65,6 +66,7 @@ namespace Localgoogle
 
         static void AplicarCuantificadores()
         {
+          Console.Clear();
           Console.WriteLine("Cuantidicadores Lógicos");
           Console.WriteLine("1. Cuantificador universal           (∀)    Verificar propiedad para todos");
           Console.WriteLine("2. Cuantificador existencial         (∃)    Verificar si existe alguno");
@@ -93,6 +95,8 @@ namespace Localgoogle
             case 2: AplicarCuantificadorExistencial(todosArchivos); break;
             case 3: AplicarCuantificadorExistenciaUnica(todosArchivos); break;
           }
+          Console.WriteLine("Presione cualquier tecla para continuar.");
+          Console.ReadKey();
         }
 
         static void AplicarCuantificadorUniversal(List<Archivo> archivos)
@@ -164,6 +168,7 @@ namespace Localgoogle
 
         static void AplicarOperadoresLogicos()
         {
+          Console.Clear();
           Console.WriteLine("Operadores lógicos varios");
           Console.WriteLine("1. Conjunción (&&)          P(x)  ∧  Q(x)");
           Console.WriteLine("2. Disyunción (||)          P(x)  ∨  Q(x)");
@@ -195,6 +200,8 @@ namespace Localgoogle
             case 4: AplicarImplicacion(todosArchivos); break;
             case 5: AplicarDobleImplicacion(todosArchivos); break;
           }
+          Console.WriteLine("Presione cualquier tecla para continuar.");
+          Console.ReadKey();
         }
 
         static void AplicarConjuncion(List<Archivo> archivos)

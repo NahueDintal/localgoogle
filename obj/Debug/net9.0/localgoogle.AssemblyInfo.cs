@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("localgoogle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db78d6bfb7e4315489f4b54933046e415cf4783d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e5a0cdd03c2ab7ca6d4bb9254bb71d81dc0707e")]
 [assembly: System.Reflection.AssemblyProductAttribute("localgoogle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("localgoogle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
