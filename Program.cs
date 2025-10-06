@@ -11,10 +11,10 @@ namespace Localgoogle
         // Clase para representar archivos con metadata
         public class Archivo
         {
-          public string Nombre { get; set; }
-          public string RutaCompleta { get; set; }
-          public string Extension { get; set; }
-          public long Tamaño { get; set; }
+          public string? Nombre { get; set; }
+          public string? RutaCompleta { get; set; }
+          public string? Extension { get; set; }
+          public long? Tamaño { get; set; }
           public DateTime FechaModificacion { get; set; }
         }
 
@@ -43,7 +43,7 @@ namespace Localgoogle
 
         static void MenuPrincipal()
         {
-          Console.Clear();
+          //Console.Clear();
           Console.WriteLine("Seleccione la forma de buscar");
           Console.WriteLine("1. Operadores lógicos básicos");
           Console.WriteLine("2. Cuantificadores lógicos");
@@ -324,18 +324,22 @@ namespace Localgoogle
           switch (criterio)
           {
             case 1:
-              Console.Write("Ingrese nombre o parte del nombre: ");
-              string nombre = Console.ReadLine();
+              string? nombre = LeerLetras(
+                  Mensaje: "Ingrese nombre o parte de el: ",
+                  MensajeError: "El nombre no puede estar vacío"
+                  );
               return a => a.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase);
             
             case 2:
-              Console.Write("Ingrese extensión (ej: .jpg, .txt): ");
-              string extension = Console.ReadLine().ToLower();
+              string? extension = LeerLetras(
+                  Mensaje: "Ingrese extensión (ej: .jpg, .txt): ",
+                  MensajeError: "Ingrese un valor adecuado y con el formato necesario."
+                  );
               return a => a.Extension.Equals(extension, StringComparison.OrdinalIgnoreCase);
             
             case 3:
               Console.Write("Ingrese tamaño mínimo en bytes: ");
-              long tamaño = long.Parse(Console.ReadLine());
+              long? tamaño = long.Parse(Console.ReadLine());
               return a => a.Tamaño >= tamaño;
             
             case 4:
@@ -414,7 +418,7 @@ namespace Localgoogle
           while (true)
           {
             Console.Write(mensaje);
-            string input = Console.ReadLine()?.Trim();
+            string? input = Console.ReadLine()?.Trim();
             if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fecha))
             {
               return fecha;
@@ -428,7 +432,7 @@ namespace Localgoogle
           while (true)
           {
             Console.Write(Mensaje);
-            string input = Console.ReadLine()?.Trim();
+            string? input = Console.ReadLine()?.Trim();
             if (!double.TryParse(input, out double valor))
             {
               Console.WriteLine(MensajeError);
@@ -449,7 +453,7 @@ namespace Localgoogle
           while (true)
           {
             Console.Write(Mensaje);
-            string input = Console.ReadLine()?.Trim();
+            string? input = Console.ReadLine()?.Trim();
             if (string.IsNullOrEmpty(input))
             {
               Console.WriteLine(MensajeError);
