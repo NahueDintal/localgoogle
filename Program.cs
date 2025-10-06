@@ -43,7 +43,6 @@ namespace Localgoogle
 
         static void MenuPrincipal()
         {
-          Console.Clear();
           Console.WriteLine("Seleccione la forma de buscar");
           Console.WriteLine("1. Operadores lógicos básicos");
           Console.WriteLine("2. Cuantificadores lógicos");
@@ -364,14 +363,12 @@ namespace Localgoogle
           int criterio = SeleccionarCriterio();
           List<Archivo> todosArchivos = LeerDirectorio(rutaBase);
           var propiedad = DefinirPropiedad(criterio);
-          
           return todosArchivos.Where(propiedad).ToList();
-      }
+        }
 
         static List<Archivo> LeerDirectorio(string ruta)
         {
           var archivos = new List<Archivo>();
-          
           try
           {
             if (!Directory.Exists(ruta))
@@ -383,9 +380,7 @@ namespace Localgoogle
                 return archivos;
               }
             }
-
             string[] todosArchivos = Directory.GetFiles(ruta, "*.*", SearchOption.AllDirectories);
-            
             foreach (string rutaCompleta in todosArchivos)
             {
               FileInfo info = new FileInfo(rutaCompleta);
@@ -398,14 +393,12 @@ namespace Localgoogle
                 FechaModificacion = info.LastWriteTime
               });
             }
-            
             Console.WriteLine($"Se encontraron {archivos.Count} archivos en: {ruta}");
           }
           catch (Exception ex)
           {
             Console.WriteLine($"Error al leer directorio: {ex.Message}");
           }
-          
           return archivos;
         }
 
@@ -415,7 +408,6 @@ namespace Localgoogle
           {
             Console.Write(mensaje);
             string input = Console.ReadLine()?.Trim();
-            
             if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fecha))
             {
               return fecha;
@@ -430,7 +422,6 @@ namespace Localgoogle
           {
             Console.Write(Mensaje);
             string input = Console.ReadLine()?.Trim();
-
             if (!double.TryParse(input, out double valor))
             {
               Console.WriteLine(MensajeError);
