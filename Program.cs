@@ -44,7 +44,7 @@ namespace Localgoogle
 
     static void MenuPrincipal()
     {
-//      Console.Clear();
+      Console.Clear();
       Console.WriteLine("Seleccione la forma de buscar");
       Console.WriteLine("1. Operadores lógicos básicos");
       Console.WriteLine("2. Cuantificadores lógicos");
