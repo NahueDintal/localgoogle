@@ -44,7 +44,7 @@ namespace Localgoogle
 
     static void MenuPrincipal()
     {
-      Console.Clear();
+//      Console.Clear();
       Console.WriteLine("Seleccione la forma de buscar");
       Console.WriteLine("1. Operadores lógicos básicos");
       Console.WriteLine("2. Cuantificadores lógicos");
@@ -100,6 +100,61 @@ namespace Localgoogle
       }
       Console.WriteLine("Presione cualquier tecla para continuar.");
       Console.ReadKey();
+    }
+
+    static void AplicarOperadoresLogicos()
+    {
+      Console.Clear();
+      Console.WriteLine("Operadores lógicos varios");
+      Console.WriteLine("1. Conjunción (&&)          P(x)  ∧  Q(x)");
+      Console.WriteLine("2. Disyunción (||)          P(x)  ∨  Q(x)");
+      Console.WriteLine("3. Negación (!)           ¬ P(x)");
+      Console.WriteLine("4. Implicación (! ||)       P(x)  -> Q(x)");
+      Console.WriteLine("5. Doble implicación (==)   P(x) <-> Q(x)");
+      Console.WriteLine("6. Volver al menu principal");
+
+      
+      double opcion = LeerNumero(
+        Mensaje: "Seleccione operador: ",
+        MensajeError: "Seleccione 1-6",
+        min: 1,
+        max: 6
+      );
+      if ( opcion == 6 )
+      {
+        estadoActual = EstadoPrograma.MenuPrincipal;
+        return;
+      }
+      string rutaPrueba = @"./carpetadeprueba";
+      List<Archivo> todosArchivos = LeerDirectorio(rutaPrueba);
+
+      switch (opcion)
+      {
+        case 1: AplicarConjuncion(todosArchivos); break;
+        case 2: AplicarDisyuncion(todosArchivos); break;
+        case 3: AplicarNegacion(todosArchivos); break;
+        case 4: AplicarImplicacion(todosArchivos); break;
+        case 5: AplicarDobleImplicacion(todosArchivos); break;
+      }
+      Console.WriteLine("Presione cualquier tecla para continuar.");
+      Console.ReadKey();
+    }
+
+    static int SeleccionarCriterio()
+    {
+      Console.WriteLine("Seleccione criterio de búsqueda:");
+      Console.WriteLine("1. Por nombre");
+      Console.WriteLine("2. Por tipo/extensión");
+      Console.WriteLine("3. Por tamaño");
+      Console.WriteLine("4. Por fecha");
+
+      double criterio = LeerNumero(
+        Mensaje: "Criterio: ",
+        MensajeError: "Seleccione 1-4",
+        min: 1,
+        max: 4
+      );
+      return (int)criterio;
     }
 
     static void AplicarCuantificadorUniversal(List<Archivo> archivos)
@@ -167,44 +222,6 @@ namespace Localgoogle
       {
         Console.WriteLine($"Archivo único: {archivosQueCumplen[0].RutaCompleta}");
       }
-    }
-
-    static void AplicarOperadoresLogicos()
-    {
-      Console.Clear();
-      Console.WriteLine("Operadores lógicos varios");
-      Console.WriteLine("1. Conjunción (&&)          P(x)  ∧  Q(x)");
-      Console.WriteLine("2. Disyunción (||)          P(x)  ∨  Q(x)");
-      Console.WriteLine("3. Negación (!)           ¬ P(x)");
-      Console.WriteLine("4. Implicación (! ||)       P(x)  -> Q(x)");
-      Console.WriteLine("5. Doble implicación (==)   P(x) <-> Q(x)");
-      Console.WriteLine("6. Volver al menu principal");
-
-      
-      double opcion = LeerNumero(
-        Mensaje: "Seleccione operador: ",
-        MensajeError: "Seleccione 1-6",
-        min: 1,
-        max: 6
-      );
-      if ( opcion == 6 )
-      {
-        estadoActual = EstadoPrograma.MenuPrincipal;
-        return;
-      }
-      string rutaPrueba = @"./carpetadeprueba";
-      List<Archivo> todosArchivos = LeerDirectorio(rutaPrueba);
-
-      switch (opcion)
-      {
-        case 1: AplicarConjuncion(todosArchivos); break;
-        case 2: AplicarDisyuncion(todosArchivos); break;
-        case 3: AplicarNegacion(todosArchivos); break;
-        case 4: AplicarImplicacion(todosArchivos); break;
-        case 5: AplicarDobleImplicacion(todosArchivos); break;
-      }
-      Console.WriteLine("Presione cualquier tecla para continuar.");
-      Console.ReadKey();
     }
 
     static void AplicarConjuncion(List<Archivo> archivos)
@@ -331,19 +348,22 @@ namespace Localgoogle
               Mensaje: "Ingrese nombre o parte de el: ",
               MensajeError: "El nombre no puede estar vacío"
               );
-          return a => a.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase);
+          return a => a.Nombre?.Contains(nombre ?? "", StringComparison.OrdinalIgnoreCase) == true;
         
         case 2:
           string? extension = LeerLetras(
               Mensaje: "Ingrese extensión (ej: .jpg, .txt): ",
               MensajeError: "Ingrese un valor adecuado y con el formato necesario."
               );
-          return a => a.Extension.Equals(extension, StringComparison.OrdinalIgnoreCase);
+          return a => a.Extension?.Equals(extension ?? "", StringComparison.OrdinalIgnoreCase) == true;
         
         case 3:
-          Console.Write("Ingrese tamaño mínimo en bytes: ");
-          long? tamaño = long.Parse(Console.ReadLine());
-          return a => a.Tamaño >= tamaño;
+          double tamañoDouble = LeerNumero(
+              Mensaje: "Ingrese tamaño minimo en bytes: ",
+              MensajeError: "Debe ingresar un numero mayor o igual a cero.",
+              min: 0
+              );
+          return a => a.Tamaño >= (long)tamañoDouble;
         
         case 4:
           DateTime fecha = LeerFecha("Ingrese fecha (dd/MM/yyyy): ", "Formato inválido");
@@ -352,24 +372,6 @@ namespace Localgoogle
         default:
             return a => true;
       }
-    }
-
-    static int SeleccionarCriterio()
-    {
-      Console.WriteLine("Seleccione criterio de búsqueda:");
-      Console.WriteLine("1. Por nombre");
-      Console.WriteLine("2. Por tipo/extensión");
-      Console.WriteLine("3. Por tamaño");
-      Console.WriteLine("4. Por fecha");
-
-      double criterio = LeerNumero(
-        Mensaje: "Criterio: ",
-        MensajeError: "Seleccione 1-4",
-        min: 1,
-        max: 4
-      );
-
-      return (int)criterio;
     }
 
     static List<Archivo> RealizarBusquedaPorCriterio(string rutaBase)
@@ -419,13 +421,13 @@ namespace Localgoogle
     static void AplicarArbolDirectrorio()
     {
       Console.Clear();
-      Console.WriteLine("ÁRBOL DE DIRECTORIOS");
+      Console.WriteLine("Árbol Directorios");
       
       string rutaBase = @"./carpetadeprueba";
       
       if (!Directory.Exists(rutaBase))
       {
-        Console.WriteLine("❌ No se encontró la carpeta de prueba.");
+        Console.WriteLine("No se encontró la carpeta de prueba.");
         Console.WriteLine("Presione cualquier tecla para continuar.");
         Console.ReadKey();
         estadoActual = EstadoPrograma.MenuPrincipal;
