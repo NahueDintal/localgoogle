@@ -441,38 +441,51 @@ namespace Localgoogle
       estadoActual = EstadoPrograma.MenuPrincipal;
     }
 
-    static void MostrarArbolSimpleRecursivo(string directorio, string indentacion)
+    static void MostrarArbolSimpleRecursivo(string directorio, string indentacion, bool esUltimo = true)
     {
       string nombreDirectorio = Path.GetFileName(directorio);
       if (string.IsNullOrEmpty(nombreDirectorio))
         nombreDirectorio = new DirectoryInfo(directorio).Name;
       
-      Console.WriteLine($"{indentacion}{nombreDirectorio}/");
+      Console.Write(indentacion);
+      Console.Write(esUltimo ? "└── " : "├── ");
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.Write($"{nombreDirectorio}");
+      Console.ResetColor();
+      Console.WriteLine("");
       
       try
       {
         var archivos = Directory.GetFiles(directorio);
         var subdirectorios = Directory.GetDirectories(directorio);
         
+        string nuevaIndentacion = indentacion + (esUltimo ? "    " : "│   ");
+        
         // Mostrar archivos primero
-        foreach (var archivo in archivos)
+        for (int i = 0; i < archivos.Length; i++)
         {
-          string nombreArchivo = Path.GetFileName(archivo);
-          Console.WriteLine($"{indentacion}  └── {nombreArchivo}");
+          string nombreArchivo = Path.GetFileName(archivos[i]);
+          bool esUltimoArchivo = (i == archivos.Length - 1) && (subdirectorios.Length == 0);
+          
+          Console.Write(nuevaIndentacion);
+          Console.Write(esUltimoArchivo ? "└── " : "├── ");
+          Console.ForegroundColor = ConsoleColor.White;
+          Console.WriteLine(nombreArchivo);
+          Console.ResetColor();
         }
         
-        // Luego subdirectorios (recursivo)
-        foreach (var subdir in subdirectorios)
+        // Mostrar subdirectorios (recursivo)
+        for (int i = 0; i < subdirectorios.Length; i++)
         {
-          MostrarArbolSimpleRecursivo(subdir, indentacion + "  ");
+          bool esUltimoSubdir = (i == subdirectorios.Length - 1);
+          MostrarArbolSimpleRecursivo(subdirectorios[i], nuevaIndentacion, esUltimoSubdir);
         }
       }
       catch (Exception ex)
       {
-        Console.WriteLine($"{indentacion}  └── [Error: {ex.Message}]");
+          Console.WriteLine($"{indentacion}    └── [Error: {ex.Message}]");
       }
     }
-
     static DateTime LeerFecha(string mensaje, string mensajeError)
     {
       while (true)
