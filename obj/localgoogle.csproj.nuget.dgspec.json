@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/nahue/Estudio/localgoogle/localgoogle.csproj": {}
+    "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj": {}
   },
   "projects": {
-    "/home/nahue/Estudio/localgoogle/localgoogle.csproj": {
+    "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nahue/Estudio/localgoogle/localgoogle.csproj",
+        "projectUniqueName": "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj",
         "projectName": "localgoogle",
-        "projectPath": "/home/nahue/Estudio/localgoogle/localgoogle.csproj",
-        "packagesPath": "/home/nahue/.nuget/packages/",
-        "outputPath": "/home/nahue/Estudio/localgoogle/obj/",
+        "projectPath": "/home/nahuedintal/Estudio/localgoogle/localgoogle.csproj",
+        "packagesPath": "/home/nahuedintal/.nuget/packages/",
+        "outputPath": "/home/nahuedintal/Estudio/localgoogle/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nahue/.nuget/NuGet/NuGet.Config"
+          "/home/nahuedintal/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
